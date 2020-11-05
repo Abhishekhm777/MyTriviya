@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytriviya.model.ModelClass
-import kotlinx.android.synthetic.main.fragment_preview.view.*
 import kotlinx.android.synthetic.main.headline_card_layout.view.*
 
-class Adapter(): RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
     private val differCallback = object : DiffUtil.ItemCallback<ModelClass>() {
         override fun areItemsTheSame(oldItem: ModelClass, newItem: ModelClass): Boolean {
             return oldItem.pId == newItem.pId

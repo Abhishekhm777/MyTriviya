@@ -10,10 +10,8 @@ import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.fragment_quiz_screen.*
-import kotlinx.android.synthetic.main.headline_card_layout.*
 import org.json.JSONArray
 import org.json.JSONObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,9 +24,9 @@ class QuizScreen : Fragment() {
 
     //Injecting shared  viewmodel by Koin dependecy injection framework
     private val viewModel by viewModel<TriviaViewModel>()
-    lateinit var jsonObject: JSONObject
-    lateinit var jsonArray: JSONArray
-    lateinit var answerArray: JSONArray
+    private lateinit var jsonObject: JSONObject
+    private lateinit var jsonArray: JSONArray
+    private lateinit var answerArray: JSONArray
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,12 +43,12 @@ class QuizScreen : Fragment() {
         jsonObject.put("name", QuizScreenArgs.fromBundle(requireArguments()).name)
         viewModel.getQuestion(0)
         //observing to questions from the view model
-        viewModel.question.observe(viewLifecycleOwner, Observer {
+        viewModel.question.observe(viewLifecycleOwner, {
             textView2.text = it
             jsonArray.put(it)
 
         })
-        viewModel.options.observe(viewLifecycleOwner, Observer {
+        viewModel.options.observe(viewLifecycleOwner, {
             initListView(it)
         })
 
@@ -84,7 +82,7 @@ class QuizScreen : Fragment() {
         jsonObject.put("questions", jsonArray)
         jsonObject.put("answers", answerArray)
 
-         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
              val dateTime=  getCurrentDateAndTime()
             jsonObject.put("time",dateTime)
         } else {

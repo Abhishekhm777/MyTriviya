@@ -16,7 +16,7 @@ abstract class TriviyaDataBase : RoomDatabase() {
    abstract fun getTriviaDao() : TriviaDao
     companion object {
 
-        const val DB_NAME = "t_db"
+        private const val DB_NAME = "t_db"
 
         @Volatile
         private var INSTANCE: TriviyaDataBase? = null

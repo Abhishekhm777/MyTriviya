@@ -22,7 +22,7 @@ class TriviaViewModel(private val repo: Repository) : ViewModel() {
     val options: LiveData<List<String>>
         get() = _options
 
-    private var count = -1;
+    private var count = -1
 
     init {
         prepareOptions()
@@ -30,8 +30,8 @@ class TriviaViewModel(private val repo: Repository) : ViewModel() {
 
     }
 
-    lateinit var questions_list: List<String>
-    lateinit var optionsList: MutableList<List<String>>
+    private lateinit var questions_list: List<String>
+    private lateinit var optionsList: MutableList<List<String>>
 
     fun getQuestion(n: Int) {
         count++

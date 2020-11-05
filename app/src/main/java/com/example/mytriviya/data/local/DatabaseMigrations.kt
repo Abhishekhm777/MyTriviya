@@ -8,7 +8,7 @@ object DatabaseMigrations {
     const val DB_VERSION = 3
 
     val MIGRATIONS: Array<Migration>
-        get() = arrayOf<Migration>(
+        get() = arrayOf(
             migration12()
         )
 

@@ -5,14 +5,11 @@ import android.os.Bundle
 import android.view.*
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.fragment_intro.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class IntroFragment : Fragment() {
-    private val viewModel by viewModel<TriviaViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
