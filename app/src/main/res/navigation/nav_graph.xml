@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/introFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.example.mytriviya.IntroFragment"
+        android:label="fragment_intro"
+        tools:layout="@layout/fragment_intro" >
+        <action
+            android:id="@+id/action_introFragment_to_quizScreen2"
+            app:destination="@id/quizScreen2"
+           />
+        <action
+            android:id="@+id/action_introFragment_to_historyActivity"
+            app:destination="@id/historyActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizScreen2"
+        android:name="com.example.mytriviya.QuizScreen"
+        android:label="fragment_quiz_screen"
+        tools:layout="@layout/fragment_quiz_screen" >
+        <action
+            android:id="@+id/action_quizScreen2_to_previewFrag"
+            app:popUpTo="@+id/introFragment"
+            app:destination="@id/previewFrag" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="true"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/previewFrag"
+        android:name="com.example.mytriviya.PreviewFrag"
+        android:label="fragment_preview"
+        tools:layout="@layout/fragment_preview" >
+
+    <argument
+        android:name="model"
+        app:argType="string"
+        app:nullable="false"/>
+        <action
+            android:id="@+id/action_previewFrag_to_introFragment"
+            app:destination="@id/introFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <activity
+        android:id="@+id/historyActivity"
+        android:name="com.example.mytriviya.HistoryActivity"
+        android:label="activity_history"
+        tools:layout="@layout/activity_history" />
+
+
+</navigation>

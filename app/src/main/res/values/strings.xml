@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MyTriviya</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">NEXT</string>
+    <string name="name">Enter your name</string>
+    <string name="question">Question :</string>
+    <string name="hint">Here are the answers selected:</string>
+    <string name="finish">FINISH</string>
+    <string name="history">history</string>
+</resources>
